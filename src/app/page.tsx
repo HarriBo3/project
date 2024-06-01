@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Home from '../components/Home';
 import About from '../components/About';
-import Services from '../components/services';
-import Contact from '../components/contact';
+import Services from '../components/Services';
+import Contact from '../components/Contact';
 
 export default function Main() {
   const [content, setContent] = useState<string>('home');
