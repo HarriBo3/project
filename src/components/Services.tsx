@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Contact: React.FC = () => {
-  return <div>Contact Content</div>;
+const Services: React.FC = () => {
+  return <div>Services Content</div>;
 };
 
-export default Contact;
+export default Services;
