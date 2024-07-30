@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onChangeContent }) => {
               onClick={() => onChangeContent('services')}
               className="text-white hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              Services
+              Web Builder
             </button>
             <button
               onClick={() => onChangeContent('contact')}
