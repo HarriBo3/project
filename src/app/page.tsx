@@ -33,4 +33,14 @@ export default function Main() {
       </main>
     </div>
   );
+
+  return (
+    <div>
+      <bottomBar onChangeContent={setContent} />
+      <main className="flex min-h-screen flex-col items-center justify-between p-24 pt-28">
+        {renderContent()}
+      </main>
+    </div>
+
+  );
 }
