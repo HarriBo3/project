@@ -1,61 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ScrollArea } from "@/components/ui/scroll-area";
-import grapesjs from 'grapesjs';
-import 'grapesjs/dist/css/grapes.min.css';
-import gjsPresetWebpage from 'grapesjs-preset-webpage';
-import gjsBlocksBasic from 'grapesjs-blocks-basic';
+import React from 'react';
 
-
-const Services = () => {
-
-
-  const grapesJsRef = useRef(null);
-
-  useEffect(() => {
-    if (grapesJsRef.current) {
-      const editor = grapesjs.init({
-        container: grapesJsRef.current,
-        fromElement: false,
-        height: '500px',
-        width: 'auto',
-        storageManager: false,
-        plugins: [gjsPresetWebpage, gjsBlocksBasic],
-        pluginsOpts: {
-          gjsPresetWebpage: {},
-          gjsBlocksBasic: {},
-        },
-        panels: { defaults: [] },
-        deviceManager: {
-          devices: [
-            {
-              name: 'Desktop',
-              width: '',
-            },
-            {
-              name: 'Mobile',
-              width: '320px',
-              widthMedia: '480px',
-            },
-          ],
-        },
-      });
-
-      editor.on('load', () => {
-        editor.refresh();
-      });
-    }
-  }, []);
-
-  return (
-    <div className="flex justify-between items-start w-full">
-
-
-
-      <div className="w-full mt-10 h-96" style={{ position: 'relative', zIndex: 10 }}>
-        <div id="gjs" ref={grapesJsRef} className="w-full h-full"></div>
-      </div>
-    </div>
-  );
+const Services: React.FC = () => {
+  return <div className="text-center bg-gray-200 py-4 mt-10">
+  <p className="text-lg italic font-semibold">
+    “There’s no silver bullet with cybersecurity; a layered defense is the only viable option.” — James Scott.
+  </p>
+</div>
 };
 
 export default Services;

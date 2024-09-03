@@ -6,7 +6,8 @@ const Contact: React.FC = () => {
   
   <p className="text-lg italic font-semibold mt-10">Website Administator Barry B. Benson | barry.benson@honexindustries.co.nz | 022 555 6901</p>
   <p className="text-lg italic font-semibold">Customer Support SpongeBob SquarePants | bob.squarepants@krustykrab.resturant.bb | 021 555 1096</p>
-  <p className="text-lg italic font-semibold">Police Liasion Officer Thomas T. Engine | thomas.t.tank@sodortrains.uk | 021 555 0914</p>
+  <p className="text-lg italic font-semibold">Police Liasion Officer Thomas T. Engine | thomas.t.engine@sodortrains.co.uk | 021 555 0914</p>
+  
 
   <p className="text-lg italic font-semibold mt-10">NetSafe.org.nz | https://report.netsafe.org.nz/hc/en-au/requests/new | 0508 638 723</p>
   <p className="text-lg italic font-semibold">Police.govt.nz | https://www.police.govt.nz/contact-us | 105</p>
