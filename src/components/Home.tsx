@@ -17,7 +17,7 @@ const Home = () => {
     },
     {
       id: 3,
-      content: "Morbi vitae orci sit amet sapien fermentum sodales.",
+      content: "Password strength .",
       imgSrc: "https://via.placeholder.com/100",
       modalContent: "Detailed content for section 3. Donec lobortis lacus et sem elementum."
     }

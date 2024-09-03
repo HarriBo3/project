@@ -47,6 +47,16 @@ const Navbar: React.FC<NavbarProps> = ({ onChangeContent }) => {
             >
               Web Builder
             </button>
+
+            <button
+              onClick={() => onChangeContent('password')}
+              className="text-white hover:bg-slate-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+
+            >Password Tester
+
+
+            </button>
+          
             <button
               onClick={() => onChangeContent('contact')}
 <<<<<<< HEAD
@@ -56,6 +66,8 @@ const Navbar: React.FC<NavbarProps> = ({ onChangeContent }) => {
 >>>>>>> 07b1691 (Remaking)
             >
               Contact
+
+              
             </button>
           </div>
         </div>

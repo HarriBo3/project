@@ -6,6 +6,7 @@ import Home from '../components/Home';
 import About from '../components/About';
 import Services from '../components/Services';
 import Contact from '../components/Contact';
+import Password from '../components/Password';
 
 export default function Main() {
   const [content, setContent] = useState<string>('home');
@@ -20,6 +21,8 @@ export default function Main() {
         return <Services />;
       case 'contact':
         return <Contact />;
+      case 'password':
+        return <Password />;
       default:
         return <Home />;
     }
