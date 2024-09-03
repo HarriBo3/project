@@ -23,6 +23,7 @@ const Home = () => {
     }
   ]);
   const [activeSection, setActiveSection] = useState(null);
+  const [isCookieBarVisible, setIsCookieBarVisible] = useState(true);
 
   const handleSectionClick = section => {
     setActiveSection(section);
@@ -30,6 +31,10 @@ const Home = () => {
 
   const handleClose = () => {
     setActiveSection(null);
+  };
+
+  const handleCookieBarClose = () => {
+    setIsCookieBarVisible(false);
   };
 
   return (
@@ -67,6 +72,14 @@ const Home = () => {
           </div>
         )}
       </div>
+
+      {/* Cookie Bar */}
+      {isCookieBarVisible && (
+        <div className="fixed bottom-0 left-0 right-0 bg-blue-600 text-white p-3 flex justify-between items-center">
+          <span>Legal Disclaimer: This site is intended as a basic informative site, it is not perfect and you should conduct your own further research.</span>
+          <button onClick={handleCookieBarClose} className="ml-4 py-1 px-3 bg-red-500 rounded hover:bg-red-700">Close</button>
+        </div>
+      )}
     </div>
   );
 };

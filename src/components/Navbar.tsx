@@ -43,6 +43,15 @@ const Navbar: React.FC<NavbarProps> = ({ onChangeContent }) => {
 
 
             </button>
+
+            <button
+              onClick={() => onChangeContent('interactables')}
+
+              className="text-white hover:bg-slate-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+
+            >
+              Interactable
+            </button>
           
             <button
               onClick={() => onChangeContent('contact')}
