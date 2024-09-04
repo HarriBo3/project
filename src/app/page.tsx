@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Home from '../components/Home';
 import About from '../components/About';
-import Services from '../components/Services';
 import Contact from '../components/Contact';
 import Password from '../components/Password';
 import Interactable from '@/components/Interactions';
@@ -18,8 +17,6 @@ export default function Main() {
         return <Home />;
       case 'about':
         return <About />;
-      case 'services':
-        return <Services />;
       case 'contact':
         return <Contact />;
       case 'password':
