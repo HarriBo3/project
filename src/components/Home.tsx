@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const Home = () => {
-  const [sections, setSections] = useState([
+type Section = {
+  id: number;
+  content: string;
+  imgSrc: string;
+  modalContent: string;
+};
+
+const Home: React.FC = () => {
+  const [sections, setSections] = useState<Section[]>([
     {
       id: 1,
       content: "Sex-tortion in New Zealand is on the rise, the main target are males 16 to 20, who are around 91% of that statistic. With an average of 32 reports to NetSafe and the Police per week this issue is very important.",
@@ -22,10 +29,10 @@ const Home = () => {
       modalContent: "Detailed content for section 3. Donec lobortis lacus et sem elementum."
     }
   ]);
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [isCookieBarVisible, setIsCookieBarVisible] = useState(true);
 
-  const handleSectionClick = section => {
+  const handleSectionClick = (section: Section) => {
     setActiveSection(section);
   };
 
