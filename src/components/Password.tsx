@@ -79,7 +79,7 @@ const PasswordStrengthTool: React.FC = () => {
         {submittedPassword && (
           <div className="mt-8 p-4 border rounded-lg bg-white">
             <p className="text-gray-700">You entered: <span className="font-bold">{submittedPassword}</span></p>
-            <p className="text-gray-700">Websites like this could collect your passwords without you knowing</p>
+            <p className="text-gray-700">Websites like this could collect your passwords without you knowing, just by typing them in.</p>
             <p className="text-gray-700">They would be able to sell this information, or gain access to your accounts.</p>
           </div>
         )}
