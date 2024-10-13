@@ -9,15 +9,15 @@ const About: React.FC = () => {
 
       <div className="mt-10 text-lg font-semibold">
         <p>
-          **About Us**
+          About Us
         </p>
 
         <p className="mt-4">
-          Welcome to our website! We are passionate about bringing you the best content, resources, and experiences in <strong>[your industry or topic]</strong>. Our mission is to provide valuable insights, foster a community of like-minded individuals, and help you navigate the world of <strong>[industry/topic]</strong>.
+          Welcome to our website! We are passionate about bringing you the best content, resources, and experiences in <strong>Cyber Security</strong>. Our mission is to provide valuable insights, foster a community of like-minded individuals, and help you navigate the world of <strong>Cyber Security and Personal Online Safety</strong>.
         </p>
 
         <p className="mt-4">
-          Founded in <strong>[year]</strong>, our team is dedicated to:
+          Founded in <strong>2024</strong>, our team is dedicated to:
         </p>
 
         <ul className="mt-4 list-disc list-inside">
@@ -37,7 +37,7 @@ const About: React.FC = () => {
         </p>
 
         <p className="mt-4">
-          Thank you for being a part of our community. If you have any questions or suggestions, feel free to <a href="#" className="text-blue-500 underline">contact us</a> or connect with us on social media.
+          Thank you for being a part of our community. If you have any questions or suggestions, feel free to visit our Contact section to message us.
         </p>
       </div>
     </div>
