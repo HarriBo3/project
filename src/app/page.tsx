@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
-import Home from '../components/Home';
-import About from '../components/About';
-import Contact from '../components/Contact';
-import Password from '../components/Password';
-import Interactable from '@/components/Interactions';
+import Home from '../pages/Home';
+import About from '../pages/About';
+import Contact from '../pages/Contact';
+import Password from '../pages/Password';
+import Interactable from '@/pages/Interactions';
 
 export default function Main() {
   const [content, setContent] = useState<string>('home');
