@@ -5,15 +5,18 @@ const PasswordStrengthTool: React.FC = () => {
   const [password, setPassword] = useState('');
   const [result, setResult] = useState(zxcvbn(''));
   const [submittedPassword, setSubmittedPassword] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-    setResult(zxcvbn(newPassword));
+    setIsSubmitted(false); // Reset the submission status when typing a new password
   };
 
   const handleSubmit = () => {
     setSubmittedPassword(password);
+    setResult(zxcvbn(password));
+    setIsSubmitted(true); // Show the results once the user submits
   };
 
   const getStrengthLabel = () => {
@@ -35,6 +38,15 @@ const PasswordStrengthTool: React.FC = () => {
 
   const getCrackTime = () => {
     return result.crack_times_display.offline_slow_hashing_1e4_per_second;
+  };
+
+  const maskPassword = (password: string) => {
+    if (password.length <= 4) {
+      return password; // If the password is less than or equal to 4 characters, return as is
+    }
+    const visiblePart = password.slice(0, 4); // Show the first 4 characters
+    const maskedPart = '*'.repeat(password.length - 4); // Replace the rest with '*'
+    return visiblePart + maskedPart;
   };
 
   return (
@@ -63,22 +75,26 @@ const PasswordStrengthTool: React.FC = () => {
           </button>
         </div>
 
-        <div className="flex justify-between text-lg font-semibold">
-          <div>
-            <p className="text-blue-700">Your password strength:</p>
-            <p className={`text-${result.score < 2 ? 'red' : result.score < 4 ? 'yellow' : 'green'}-500`}>
-              {getStrengthLabel()}
-            </p>
+        {isSubmitted && (
+          <div className="flex justify-between text-lg font-semibold">
+            <div>
+              <p className="text-blue-700">Your password strength:</p>
+              <p className={`text-${result.score < 2 ? 'red' : result.score < 4 ? 'yellow' : 'green'}-500`}>
+                {getStrengthLabel()}
+              </p>
+            </div>
+            <div>
+              <p className="text-blue-700">Estimated time to crack:</p>
+              <p className="text-red-500">{getCrackTime()}</p>
+            </div>
           </div>
-          <div>
-            <p className="text-blue-700">Estimated time to crack:</p>
-            <p className="text-red-500">{getCrackTime()}</p>
-          </div>
-        </div>
+        )}
 
-        {submittedPassword && (
+        {isSubmitted && submittedPassword && (
           <div className="mt-8 p-4 border rounded-lg bg-white">
-            <p className="text-gray-700">You entered: <span className="font-bold">{submittedPassword}</span></p>
+            <p className="text-gray-700">
+              You entered: <span className="font-bold">{maskPassword(submittedPassword)}</span>
+            </p>
             <p className="text-gray-700">Websites like this could collect your passwords without you knowing, just by typing them in.</p>
             <p className="text-gray-700">They would be able to sell this information, or gain access to your accounts.</p>
           </div>

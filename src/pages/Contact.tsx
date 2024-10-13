@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
   
 
   <p className="text-lg italic font-semibold mt-10">NetSafe.org.nz | https://report.netsafe.org.nz/hc/en-au/requests/new | 0508 638 723</p>
-  <p className="text-lg italic font-semibold">Police.govt.nz | https://www.police.govt.nz/contact-us | 105</p>
+  <p className="text-lg italic font-semibold">Police.govt.nz | https://www.police.govt.nz/contact-us | For emergencies within NZ: 111, For non-emergencies within NZ:  105</p>
 
 
 </div></div>;
