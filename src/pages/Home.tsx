@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "../components/ui/scroll-area";
 
 type Section = {
   id: number;
@@ -9,15 +9,6 @@ type Section = {
 };
 
 const Home: React.FC = () => {
-
-  const securityTips = [
-    'Use strong, unique passwords for each account.',
-    'Enable two-factor authentication whenever possible.',
-    'Be cautious of unsolicited emails and attachments.',
-    'Keep your software and antivirus updated.',
-    'Regularly back up important data.',
-  ];
-
   const [sections] = useState<Section[]>([
     {
       id: 1,
