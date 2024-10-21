@@ -399,28 +399,10 @@ const Home: React.FC = () => {
     },
   ]);
 
-  const [activeSection, setActiveSection] = useState<Section | null>(null);
-  const [isCookieBarVisible, setIsCookieBarVisible] = useState(true);
-  const [isCookieModalVisible, setIsCookieModalVisible] = useState(false);
+  const [expandedSectionId, setExpandedSectionId] = useState<number | null>(null);
 
-  const handleSectionClick = (section: Section) => {
-    setActiveSection(section);
-  };
-
-  const handleClose = () => {
-    setActiveSection(null);
-  };
-
-  const handleCookieBarClose = () => {
-    setIsCookieBarVisible(false);
-  };
-
-  const handleCookieBarMoreInfo = () => {
-    setIsCookieModalVisible(true);
-  };
-
-  const handleCookieModalClose = () => {
-    setIsCookieModalVisible(false);
+  const handleSectionClick = (sectionId: number) => {
+    setExpandedSectionId(expandedSectionId === sectionId ? null : sectionId);
   };
 
   return (
@@ -432,92 +414,40 @@ const Home: React.FC = () => {
         </p>
       </div>
 
-
-
       {/* Main Content */}
       <div className="flex-grow flex justify-center items-start w-full mt-10">
         <ScrollArea className="border border-white flex flex-col items-center justify-start p-5 m-2 w-full h-full bg-white shadow-md rounded-lg overflow-y-auto">
           {sections.map((section, index) => (
             <React.Fragment key={section.id}>
               <div
-                className="flex items-start mb-4 w-full cursor-pointer p-4 hover:bg-gray-100 transition-all rounded-md"
-                onClick={() => handleSectionClick(section)}
+                className="flex items-start mb-4 w-full cursor-pointer p-4 hover:bg-gray-100 transition-all rounded-md justify-between"
+                onClick={() => handleSectionClick(section.id)}
               >
-                <img
-                  src={section.imgSrc}
-                  alt="section image"
-                  className="w-24 h-24 mr-4 object-cover rounded"
-                />
-                <div>{section.content}</div>
+                <div className="flex items-start">
+                  <img
+                    src={section.imgSrc}
+                    alt="section image"
+                    className="w-24 h-24 mr-4 object-cover rounded"
+                  />
+                  <div>{section.content}</div>
+                </div>
+                <div className="ml-4">
+                  {expandedSectionId === section.id ? "▼" : "►"}
+                </div>
               </div>
+
+              {/* Modal Content */}
+              {expandedSectionId === section.id && (
+                <div className="p-4 mt-2 bg-gray-100 rounded-md">
+                  {section.modalContent}
+                </div>
+              )}
+
               {index < sections.length - 1 && <hr className="border-t w-full my-4" />}
             </React.Fragment>
           ))}
         </ScrollArea>
       </div>
-
-      {/* Section Modal */}
-      {activeSection && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white p-5 rounded-lg max-w-2xl w-full shadow-lg overflow-y-auto max-h-screen relative">
-            <button
-              onClick={handleClose}
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
-            >
-              &#x2715;
-            </button>
-            <div>{activeSection.modalContent}</div>
-          </div>
-        </div>
-      )}
-
-      {/* Cookie Bar Modal */}
-      {isCookieModalVisible && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white p-5 rounded-lg max-w-lg w-full shadow-lg overflow-y-auto max-h-screen relative">
-            <button
-              onClick={handleCookieModalClose}
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
-            >
-              &#x2715;
-            </button>
-            <h2 className="text-lg font-bold mb-4">Legal Disclaimer</h2>
-            <p>
-              The information provided on this website is for general informational purposes only. While we strive to ensure that the content is accurate and up to date, we make no warranties or representations of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, services, or related graphics contained on the site for any purpose. Any reliance you place on such information is strictly at your own risk.
-            </p>
-            <p className="mt-2">
-              We do not offer professional legal, technical, or cybersecurity advice. For specific concerns related to cybersecurity, we recommend consulting a qualified professional. By using this website, you agree that we are not liable for any loss or damage, including but not limited to indirect or consequential loss or damage, arising from or in connection with the use of this website.
-            </p>
-            <p className="mt-2">
-              This site may contain links to external websites that are not operated by us. We have no control over the content or availability of those sites and accept no responsibility for any loss or damage that may arise from your use of them.
-            </p>
-            <p className="mt-2">All content is subject to change without notice.</p>
-          </div>
-        </div>
-      )}
-
-      {/* Cookie Bar */}
-      {isCookieBarVisible && (
-        <div className="fixed bottom-0 left-0 right-0 bg-blue-600 text-white p-3 flex justify-between items-center shadow-lg">
-          <span>
-            Legal Disclaimer: This site is intended for general information and does not constitute legal advice. Research independently. By using this site you agree to these terms.
-          </span>
-          <div className="ml-4 flex">
-            <button
-              onClick={handleCookieBarMoreInfo}
-              className="mr-2 py-1 px-3 bg-green-500 rounded hover:bg-green-700"
-            >
-              More Info
-            </button>
-            <button
-              onClick={handleCookieBarClose}
-              className="py-1 px-3 bg-red-500 rounded hover:bg-red-700"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

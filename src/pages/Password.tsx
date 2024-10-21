@@ -95,7 +95,7 @@ const PasswordStrengthTool: React.FC = () => {
             <p className="text-gray-700">
               You entered: <span className="font-bold">{maskPassword(submittedPassword)}</span>
             </p>
-            <p className="text-gray-700">Websites like this could collect your passwords without you knowing, just by typing them in.</p>
+            <p className="text-gray-700">Even if you have a secure password, websites could collect your passwords without you knowing, just by typing them in.</p>
             <p className="text-gray-700">They would be able to sell this information, or gain access to your accounts.</p>
           </div>
         )}
